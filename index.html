@@ -1,0 +1,18 @@
+ <!DOCTYPE html><!--Modern Version of HTML-->
+<html> <!-- Represents a Websites -->
+  <head>
+    <title>React Basics</title>
+  </head>
+  <body>
+    <div class="js-container"></div><!--React Application Root. -->
+
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script type="text/babel"> 
+      const container = document.querySelector('.js-container');
+      ReactDOM.createRoot(container).render("Hello, React!");
+    </script>
+  </body>
+</html>
