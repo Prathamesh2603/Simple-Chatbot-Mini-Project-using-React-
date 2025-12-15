@@ -15,19 +15,69 @@
       function ChatInput() {
         return (
           <>
-            <input placeholder="Send a message to ChatBot..." size="30"/> //size="30" sets the width/char of the input box.             
+            <input 
+              placeholder="Send a message to ChatBot..." 
+              size="30"
+            /> {/* Makes it easy to read */} 
+        
             <button>Send</button>
           </>
         );
       }
 
-      const app = (
-        <>
-          <ChatInput />
-        </>
-      );
+      function ChatMessage(/*props*/{ message, sender }) {// JavaScript shortcut No. 2:- Since props is a parameter in a function, and an object, we can directly destructure it in the function parameter itself. This shortcut is used a lot in React documentatio and React tutorials. Better to know it.
+        // const message = props.message;
+        // const sender = props.sender;
+        // const { message, sender } = props; // JavaScript shortcut No. 1:- Destructuring Assignment. This line is equivalent to the above two lines. 
+        // Taking values from props object and storing them in message and sender variables.
+
+        /*if (sender === 'robot') {
+          return (
+            <div>
+              <img src="https://www.shutterstock.com/image-vector/happy-robot-3d-ai-character-600nw-2464455965.jpg" width="60"/>
+              {message}
+            </div>
+          );
+        }*/
+        return (
+          <div>
+            {sender === "robot" && (
+              <img src="https://www.shutterstock.com/image-vector/happy-robot-3d-ai-character-600nw-2464455965.jpg" width="60"/>
+            )}
+            {message}
+            {sender === "user" && (
+              <img src="https://thumbs.dreamstime.com/b/user-icon-circle-shape-d-rendering-illustration-isolated-white-background-404187229.jpg" width="60"/>
+            )}
+          </div>
+        );
+      }
+
+      function App() {
+        return (
+          <>
+            <ChatInput />
+            <ChatMessage 
+              message="Hello, chatBot" 
+              sender="user"
+            />
+            <ChatMessage 
+              message="Hello! How can I help your?" 
+              sender="robot"
+            />
+            <ChatMessage 
+              message="Can you get me todays date?" 
+              sender="user"
+            />
+            <ChatMessage 
+              message="Today is september 27" 
+              sender="robot"
+            />
+          </>
+        );
+      }
+
       const container = document.querySelector('.js-container');
-      ReactDOM.createRoot(container).render(app);
+      ReactDOM.createRoot(container).render(<App />);
     </script>
   </body>
 </html>
