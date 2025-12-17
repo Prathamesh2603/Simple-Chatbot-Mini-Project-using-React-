@@ -39,29 +39,27 @@
         );
       }
 
-      const chatMessages = [
-        {
-          message: "Hello, chatBot",
-          sender: "user",
-        },
-        {
-          message: "Hello! How can I help your?",
-          sender: "robot",
-        },
-        {
-          message: "Can you get me todays date?",
-          sender: "user",
-        },
-        {
-          message: "Today is september 27",
-          sender: "robot",
-        },
-      ];
-
-      function App() {
+      function ChatMessages() {
+        const chatMessages = [
+          {
+            message: "Hello, chatBot",
+            sender: "user",
+          },
+          {
+            message: "Hello! How can I help your?",
+            sender: "robot",
+          },
+          {
+            message: "Can you get me todays date?",
+            sender: "user",
+          },
+          {
+            message: "Today is september 27",
+            sender: "robot",
+          },
+        ];
         return (
           <>
-            <ChatInput />
             {
               chatMessages.map((chatMessage, idx) => {
                 return (
@@ -72,6 +70,15 @@
                 );
               })
             }
+          </>
+        );
+      }
+
+      function App() {
+        return (
+          <>
+            <ChatInput />
+            <ChatMessages />
           </>
         );
       }
