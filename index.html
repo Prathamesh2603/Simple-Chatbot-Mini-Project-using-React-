@@ -63,9 +63,9 @@
           <>
             <ChatInput />
             {
-              chatMessages.map((chatMessage) => {
+              chatMessages.map((chatMessage, idx) => {
                 return (
-                  <ChatMessage 
+                  <ChatMessage key={idx}
                     message={chatMessage.message} 
                     sender={chatMessage.sender} 
                   />
