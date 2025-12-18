@@ -40,7 +40,7 @@
       }
 
       function ChatMessages() {
-        const chatMessages = [
+        React.useState([
           {
             message: "Hello, chatBot",
             sender: "user",
@@ -61,7 +61,7 @@
             sender: "robot",
             idx: "id4"
           },
-        ];
+        ]);
 
         function sendMessage() {
           chatMessages.push({
