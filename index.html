@@ -44,26 +44,42 @@
           {
             message: "Hello, chatBot",
             sender: "user",
+            idx: "id1"
           },
           {
             message: "Hello! How can I help your?",
             sender: "robot",
+            idx: "id2"
           },
           {
             message: "Can you get me todays date?",
             sender: "user",
+            idx: "id3"
           },
           {
             message: "Today is september 27",
             sender: "robot",
+            idx: "id4"
           },
         ];
+
+        function sendMessage() {
+          chatMessages.push({
+            message: "text",
+            sender: "user",
+            idx: crypto.randomUUID()
+          });
+
+          console.log(chatMessages);
+          
+        }
         return (
           <>
+            <button onClick = {sendMessage}>Send Msg</button>
             {
-              chatMessages.map((chatMessage, idx) => {
+              chatMessages.map((chatMessage) => {
                 return (
-                  <ChatMessage key={idx}
+                  <ChatMessage key={chatMessage.idx}
                     message={chatMessage.message} 
                     sender={chatMessage.sender} 
                   />
